@@ -1,13 +1,13 @@
 <template>
-  <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
+  <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-2">
     <div class="mb-6">
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Send Email</h2>
-      <p class="text-gray-600">Compose and send emails to your users</p>
+      <h2 class="text-xl font-bold text-gray-900 mb-2">Send Email</h2>
+      <p class="text-gray-600 text-sm">Compose and send emails to your users</p>
     </div>
 
-    <form @submit.prevent="sendEmail" class="space-y-6">
+    <form @submit.prevent="sendEmail" class="space-y-4">
       <!-- Recipient Selection -->
-      <div class="space-y-4">
+      <div class="space-y-3">
         <label class="block text-sm font-medium text-gray-700">Recipients</label>
         
         <!-- Send Type Toggle -->
@@ -40,10 +40,10 @@
               type="text"
               v-model="userSearch"
               placeholder="Search users..."
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-sm"
             />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-              <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
             </div>
@@ -115,7 +115,7 @@
           v-model="emailData.subject"
           required
           placeholder="Enter email subject..."
-          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-sm"
         />
       </div>
 
@@ -128,9 +128,9 @@
           id="body"
           v-model="emailData.body"
           required
-          rows="8"
+          rows="4"
           placeholder="Enter your message..."
-          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical placeholder:text-sm"
         ></textarea>
       </div>
 
@@ -148,7 +148,7 @@
           <button
             type="submit"
             :disabled="!canSend"
-            class="px-6 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {{ isSending ? 'Sending...' : 'Send Email' }}
           </button>
@@ -207,7 +207,7 @@
     </div>
 
     <!-- Success/Error Messages -->
-    <div v-if="message" class="mt-4 p-4 rounded-md" :class="messageType === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'">
+    <div v-if="message" class="mt-4 p-4 rounded-md text-sm" :class="messageType === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'">
       {{ message }}
     </div>
   </div>
