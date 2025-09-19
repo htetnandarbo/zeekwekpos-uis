@@ -135,7 +135,7 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex items-center justify-end pt-6 border-t border-gray-200">
+      <div class="flex items-center justify-end">
     
         <div class="flex space-x-3">
           <button
